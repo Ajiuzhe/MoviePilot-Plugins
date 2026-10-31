@@ -58,7 +58,7 @@ jobs:
           HAS_PAT: ${{ secrets.SYNC_TOKEN != '' }}
         run: |
           set -uo pipefail
-
+git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           if git merge upstream/main --no-edit; then
             echo "✅ Clean merge — pushing to main."
             git push origin main
